@@ -1,0 +1,16 @@
+all: hw5-main.o hw5-load.o hw5-scan.o hw5-search.o hw5-free.o
+	ar rcs hw8-lib-CollinFerguson.a hw5-load.o hw5-scan.o hw5-search.o hw5-free.o
+	gcc hw5-main.o -static ./hw8-lib-CollinFerguson.a -o hw8
+hw5-main.o: hw5-main.c
+	gcc -c -static hw5-main.c
+hw5-load.o: hw5-load.c
+	gcc -c -static hw5-load.c
+hw5-scan.o: hw5-scan.c
+	gcc -c -static hw5-scan.c
+hw5-search.o: hw5-search.c
+	gcc -c -static hw5-search.c
+hw5-free.o: hw5-free.c
+	gcc -c -static hw5-free.c
+
+clean:
+	rm -rf *.o hw8-lib-CollinFerguson.a hw8
